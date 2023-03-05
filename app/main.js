@@ -1,14 +1,12 @@
-//MATERIAL DE ESTUDO
 
-let livros = []  //para fazer uma array
-const requisicao = 'https://guilhermeonrails.github.io/casadocodigo/livros.json'   //para pegar os objetos JS.
-getBuscarLivrosDaAPI() //chamando função assincrona. 
 
-//criando função assincrona 
+let livros = []
+const endpointDaAPI = 'https://guilhermeonrails.github.io/casadocodigo/livros.json'
+getBuscarLivrosDaAPI()
+
 async function getBuscarLivrosDaAPI() {
-    const res = await fetch(requisicao)
+    const res = await fetch(endpointDaAPI)
     livros = await res.json()
-    let  livrosComDesconto = aplicarDesconto(livros);
-    exibirOsLivrosNaTela(livrosComDesconto);
+    livros = aplicarDesconto(livros)
+    exibirOsLivrosNaTela(livrosComDesconto)
 }
-
